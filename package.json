@@ -7,7 +7,7 @@
         "dev": "nodemon src/main.ts",
         "build": "tsc",
         "prepare": "npm run build",
-        "lint": "prettier --write "src /**/*.ts""
+        "lint": "prettier --write \"src/**/*.ts\""
     },
     "engines": {
         "node": ">=16.0.0",
@@ -17,7 +17,7 @@
         "type": "git",
         "url": "git+https://github.com/consumet/consumet.ts.git"
     },
-    "author": "prince-ao princead@tutanota.com",
+    "author": "prince-ao <princead@tutanota.com>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/consumet/consumet.ts/issues"
