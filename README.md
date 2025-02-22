@@ -133,3 +133,4 @@ Thanks to the following people for keeping this project alive and thriving.
  - [Consumet.ts](https://github.com/consumet/consumet.ts)
  - [Website](https://github.com/consumet/consumet.org)
  - [Providers Status](https://github.com/consumet/providers-status)
+# shonenx-consumet-api
