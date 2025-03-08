@@ -3,15 +3,16 @@
     "version": "1.0.0",
     "main": "src/main.ts",
     "scripts": {
-        "start": "ts-node src/main.ts",
-        "dev": "nodemon src/main.ts",
-        "build": "tsc",
-        "lint": "prettier --write \"src/**/*.ts\""
-    },
+"start": "ts-node src/main.ts",
+"dev": "nodemon src/main.ts",
+"build": "tsc",
+"prepare": "npm run build",
+"lint": "prettier --write \"src/**/*.ts\""
+},
     "engines": {
-        "node": ">=12.5.0",
-        "yarn": ">=1.17.3"
-    },
+"node": ">=16.0.0",
+"npm": ">=8.0.0"
+},
     "repository": {
         "type": "git",
         "url": "git+https://github.com/consumet/consumet.ts.git"
