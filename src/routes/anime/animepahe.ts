@@ -43,15 +43,31 @@ const routes = async (fastify: FastifyInstance, options: RegisterOptions) => {
     '/watch',
     async (request: FastifyRequest, reply: FastifyReply) => {
       const episodeId = (request.query as { episodeId: string }).episodeId;
+
+      if (!episodeId) {
+        return reply.status(400).send({ message: 'episodeId is required' });
+      }
+
       try {
         const res = await animepahe.fetchEpisodeSources(episodeId);
+        if (!res || !res.sources || res.sources.length === 0) {
+          return reply.status(404).send({ message: 'No sources found for this episode' });
+        }
 
         reply.status(200).send(res);
       } catch (err) {
-        console.log(err);
-        reply
-          .status(500)
-          .send({ message: 'Something went wrong. Contact developer for help.' });
+        console.error('Error fetching episode sources:', err);
+        if (err instanceof Error) {
+          reply.status(500).send({ 
+            message: 'Failed to fetch episode sources',
+            error: err.message
+          });
+        } else {
+          reply.status(500).send({ 
+            message: 'Failed to fetch episode sources',
+            error: 'Unknown error occurred'
+          });
+        }
       }
     },
   );
